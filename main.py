@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 
+#Image scrapper has a bug in it
 search = input("Enter search here:")
 params = {"q": search}
 r = requests.get("http://www.bing.com/search", params=params)
@@ -16,6 +17,4 @@ for item in links:
     if item_text and item_href:
         print(item_text)
         print(item_href)
-        print("Summary:", item.find("a").parent.parent.find("p").text)
-
-
+        print("Summary:", item.find("a"))
